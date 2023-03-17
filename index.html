@@ -17,7 +17,9 @@
         <section class="profile">
             <img class="profile__avatar" alt="'аватар пользователя" src="./images/avatar.jpeg">
             <div class="profile__info">
-                <h1 class="profile__user">Жак-Ив-Кусто<button class="profile__edit"></button></h1>
+                <div class="profile__edit-user">
+                    <h1 class="profile__user">Жак-Ив-Кусто</h1><button class="profile__edit"></button>
+                </div>
                 <p class="profile__about-user">Исследователь океана</p>
             </div>
             <button class="profile__add-button"></button>
@@ -78,9 +80,9 @@
             <button class="popup__close-btn" type="button" title="Закрыть"></button>
             <form class="popup__form" name="edit-profile" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__input" id="name" type="text" name="title" placeholder="Жак-Ив-Кусто" required>
-                <input class="popup__input" id="description" type="text" name="subtitle"
-                    placeholder="Исследователь океана" required>
+                <input class="popup__input popup__input_user_name" id="name" type="text" name="title" required value="Жак-Ив-Кусто">
+                <input class="popup__input popup__input_user_description" id="description" type="text" name="subtitle"
+                    value="Исследователь океана" required>
                 <button class="popup__submit-btn" type="submit" title="Сохранить">Сохранить</button>
             </form>
         </div>

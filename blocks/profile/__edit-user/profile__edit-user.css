@@ -1,0 +1,11 @@
+.profile__edit-user {
+    display: flex;
+    gap: 18px;
+    align-items: flex-end;
+}
+
+@media screen and (max-width: 450px) {
+    .profile__edit-user {
+        gap: 10px;
+    }
+}
