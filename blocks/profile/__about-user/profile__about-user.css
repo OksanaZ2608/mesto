@@ -5,14 +5,20 @@
     line-height: 22px;
     color: #FFFFFF;
     margin: 0;
-    margin-top: 16px;
+    margin-top: 12px;
+    max-width: 336px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
     .profile__about-user {
+        max-width: 282px;
         font-size: 14px;
         line-height: 17px;
         text-align: center;
+        margin-top: 10px;
     }
 
 }

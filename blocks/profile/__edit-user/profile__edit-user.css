@@ -1,11 +1,12 @@
 .profile__edit-user {
     display: flex;
-    gap: 18px;
+    gap: 22px;
     align-items: flex-end;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .profile__edit-user {
         gap: 10px;
+        transform: translateX(12px);
     }
 }

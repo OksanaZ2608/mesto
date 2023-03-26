@@ -1,5 +1,7 @@
 .element {
+    width: 282px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
+    list-style-type: none;
 }
