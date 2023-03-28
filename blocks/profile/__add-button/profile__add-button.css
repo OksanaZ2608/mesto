@@ -9,7 +9,7 @@
     box-sizing: border-box;
     background-position: center;
     align-self: center;
-    background-size: 22px, 22px contain;
+    background-size: 22px, 22px, contain;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
 }

@@ -9,19 +9,25 @@ let userName = profile.querySelector('.profile__user');
 let aboutUser = profile.querySelector('.profile__about-user');
 const editButton = profile.querySelector('.profile__edit');
 
+
 //Открываем Поп-ап и видим значение со страницы
 const openPopup = function () {
-    popupElement.classList.add('popup_is-visible');
-    nameInput.value = userName.textContent;
-    descriptionInput.value = aboutUser.textContent;
+    popupElement.classList.add('popup_opened'); 
 }
 
 //Закрываем поп-ап без сохранения изменений
 const closePopup = function () {
-    popupElement.classList.remove('popup_is-visible');
+    popupElement.classList.remove('popup_opened');
 }
 
-editButton.addEventListener('click', openPopup);
+//Заргружаем в input значения со страницы
+function openEditProfilePopup() {
+    openPopup();
+    nameInput.value = userName.textContent;
+    descriptionInput.value = aboutUser.textContent;
+}
+
+editButton.addEventListener('click', openEditProfilePopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 
 // Обработчик «отправки» формы, хотя пока
