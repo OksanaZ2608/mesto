@@ -8,4 +8,9 @@
     display: none;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
+    display: flex;
+    background-color:rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
 }
