@@ -40,10 +40,6 @@ function openEditProfilePopup() {
   nameInput.value = userName.textContent;
   descriptionInput.value = aboutUser.textContent;
 }
-profileEditButtonElement.addEventListener('click', openEditProfilePopup);
-popupCloseButtonElement.addEventListener('click', function () {
-  closePopup(popupEditProfile);
-});
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -54,21 +50,11 @@ function handleFormSubmit(evt) {
   //После отправки формы автоматически закрываем поп-ап
   closePopup(popupEditProfile);
 }
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-popupForm.addEventListener('submit', handleFormSubmit);
-
-//Добавление карточки
-cardAddButtonElement.addEventListener('click', function () {
-  openPopup(popupCards);
-  formCards.reset();
-});
 
 //Закрытие формы при нажатии на крестик без сохранения
 const closeCardsForm = function () {
   closePopup(popupCards);
 }
-popupCardsCloseButtonElement.addEventListener('click', closeCardsForm);
 
 //создание карточки
 function createCard(card) {
@@ -112,12 +98,30 @@ function handleFormCards(evt) {
   renderCard(newCard, cardElements);
   closeCardsForm();
 }
-formCards.addEventListener('submit', handleFormCards);
 
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
   cardElements.appendChild(cardElement);
 });
+
+profileEditButtonElement.addEventListener('click', openEditProfilePopup);
+popupCloseButtonElement.addEventListener('click', function () {
+  closePopup(popupEditProfile);
+});
+
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+popupForm.addEventListener('submit', handleFormSubmit);
+
+//Добавление карточки
+cardAddButtonElement.addEventListener('click', function () {
+  openPopup(popupCards);
+  formCards.reset();
+});
+
+popupCardsCloseButtonElement.addEventListener('click', closeCardsForm);
+
+formCards.addEventListener('submit', handleFormCards);
 
 //закрытие зума
 zoomCloseButtonElement.addEventListener('click', function () {
