@@ -12,6 +12,7 @@ let userName = profile.querySelector('.profile__user'); //юзер
 let aboutUser = profile.querySelector('.profile__about-user'); //профессия
 const editButton = profile.querySelector('.profile__edit'); //кнопка редактировать профиль
 const cardElements = document.querySelector('.elements');
+const template = document.getElementById('template');
 const popupCards = document.querySelector('.popup-cards') // карточки
 const addButton = document.querySelector('.profile__add-button'); // кнопка добавить карточку
 const imageName = document.querySelector('.popup__input_image_name'); //название картинки
@@ -24,12 +25,12 @@ const CreateButton = document.querySelector('.popup__create-btn'); //кнопк�
 const zoomCloseButton = document.querySelector('.popup__close-zoom-btn'); //кнопка закрыть зум
 
 //Открываем Поп-ап
-function openPopup(popupElement) {
+const openPopup = function(popupElement) {
   popupElement.classList.add('popup_opened');
 }
 
 //Закрываем поп-ап без сохранения изменений
-function closePopup(popupElement) {
+const closePopup = function(popupElement) {
   popupElement.classList.remove('popup_opened');
 }
 
@@ -41,7 +42,9 @@ function openEditProfilePopup() {
 }
 
 editButton.addEventListener('click', openEditProfilePopup);
-popupCloseButtonElement.addEventListener('click', closePopup);
+popupCloseButtonElement.addEventListener('click', function() {
+closePopup(popupProfile);});
+
 
 
 // Обработчик «отправки» формы, хотя пока
@@ -71,7 +74,7 @@ popupCloseCards.addEventListener('click', closeCards);
 
 //создание карточки
 function createCard(card) {
-  const cardTemplate = document.getElementById('template').content.cloneNode(true);
+  const cardTemplate = template.content.cloneNode(true);
   const cardTitle = cardTemplate.querySelector('.element__title');//название карточки
   const cardImage = cardTemplate.querySelector('.element__image');//изображение карточки
   const deleteCardButton = cardTemplate.querySelector('.element__delete-btn');//удалить карточку
