@@ -18,7 +18,7 @@ popup_.popup__create-btn {
     opacity: 0.8;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
     .popup__create-btn {
         font-size: 14px;
         line-height: 17px;
