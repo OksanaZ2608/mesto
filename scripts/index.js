@@ -25,12 +25,12 @@ const CreateButton = document.querySelector('.popup__create-btn'); //кнопк�
 const zoomCloseButton = document.querySelector('.popup__close-zoom-btn'); //кнопка закрыть зум
 
 //Открываем Поп-ап
-const openPopup = function(popupElement) {
+const openPopup = function (popupElement) {
   popupElement.classList.add('popup_opened');
 }
 
 //Закрываем поп-ап без сохранения изменений
-const closePopup = function(popupElement) {
+const closePopup = function (popupElement) {
   popupElement.classList.remove('popup_opened');
 }
 
@@ -42,10 +42,9 @@ function openEditProfilePopup() {
 }
 
 editButton.addEventListener('click', openEditProfilePopup);
-popupCloseButtonElement.addEventListener('click', function() {
-closePopup(popupProfile);});
-
-
+popupCloseButtonElement.addEventListener('click', function () {
+  closePopup(popupProfile);
+});
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
