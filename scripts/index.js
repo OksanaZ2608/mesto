@@ -2,9 +2,9 @@ const popupElement = document.querySelector('.popup'); //попап
 const popupEditProfile = document.querySelector('.popup-profile') //попап редактировать профиль
 const popupCloseButtonElement = popupElement.querySelector('.popup__close-btn'); //закрыть попап
 const popupSubmitButtonElement = popupElement.querySelector('.popup__submit-btn'); //кнопка сохранить 
-const popupForm = popupElement.querySelector('.popup__form'); //форма попап
+const formEditProfile = popupElement.querySelector('.popup__form'); //форма попап
 const formProfile = document.querySelector('.popup__form-profile'); //форма профиля
-const formCards = document.querySelector('.popup__form-cards'); //форма для карточки
+const formAddCard = document.querySelector('.popup__form-cards'); //форма для карточки
 const nameInput = popupElement.querySelector('.popup__input_user_name'); //инпут имя
 const descriptionInput = popupElement.querySelector('.popup__input_user_description'); //инпут профессия
 const profile = document.querySelector('.profile'); //профиль
@@ -43,7 +43,7 @@ function openEditProfilePopup() {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   userName.textContent = nameInput.value;
   aboutUser.textContent = descriptionInput.value;
@@ -111,17 +111,17 @@ popupCloseButtonElement.addEventListener('click', function () {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-popupForm.addEventListener('submit', handleFormSubmit);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 //Добавление карточки
 cardAddButtonElement.addEventListener('click', function () {
   openPopup(popupCards);
-  formCards.reset();
+  formAddCard.reset();
 });
 
 popupCardsCloseButtonElement.addEventListener('click', closeCardsForm);
 
-formCards.addEventListener('submit', handleFormCards);
+formAddCard.addEventListener('submit', handleFormCards);
 
 //закрытие зума
 zoomCloseButtonElement.addEventListener('click', function () {
