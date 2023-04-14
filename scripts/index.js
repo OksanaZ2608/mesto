@@ -1,12 +1,11 @@
-const popupElement = document.querySelector('.popup'); //попап
+const popupElements = document.querySelectorAll('.popup'); //попап
 const popupEditProfile = document.querySelector('.popup-profile') //попап редактировать профиль
-const popupCloseButtonElement = popupElement.querySelector('.popup__close-btn'); //закрыть попап
-const popupSubmitButtonElement = popupElement.querySelector('.popup__submit-btn'); //кнопка сохранить 
-const formEditProfile = popupElement.querySelector('.popup__form'); //форма попап
-const formProfile = document.querySelector('.popup__form-profile'); //форма профиля
+const popupCloseButtonElement = document.querySelectorAll('.popup__close-btn'); //закрыть попап
+const popupSubmitButtonElement = popupEditProfile.querySelector('.popup__submit-btn'); //кнопка сохранить 
+const formEditProfile = document.querySelector('.popup__form-profile'); //форма профиля
 const formAddCard = document.querySelector('.popup__form-cards'); //форма для карточки
-const nameInput = popupElement.querySelector('.popup__input_user_name'); //инпут имя
-const descriptionInput = popupElement.querySelector('.popup__input_user_description'); //инпут профессия
+const nameInput = popupEditProfile.querySelector('.popup__input_user_name'); //инпут имя
+const descriptionInput = popupEditProfile.querySelector('.popup__input_user_description'); //инпут профессия
 const profile = document.querySelector('.profile'); //профиль
 const userName = profile.querySelector('.profile__user'); //юзер
 const aboutUser = profile.querySelector('.profile__about-user'); //профессия
@@ -27,11 +26,13 @@ const zoomCloseButtonElement = document.querySelector('.popup__close-zoom-btn');
 //Открываем Поп-ап
 const openPopup = function (popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
 //Закрываем поп-ап без сохранения изменений
 const closePopup = function (popupElement) {
   popupElement.classList.remove('popup_opened');
+ document.removeEventListener('keydown', closePopupByEscape);
 }
 
 //Заргружаем в input значения со страницы
@@ -51,10 +52,30 @@ function submitEditProfileForm(evt) {
   closePopup(popupEditProfile);
 }
 
-//Закрытие формы при нажатии на крестик без сохранения
-const closeCardsForm = function () {
-  closePopup(popupCards);
-}
+//закрытие popup при нажатии на х
+popupCloseButtonElement.forEach((element) => {
+  const popupElement = element.closest('.popup');
+  element.addEventListener('click', () => {
+  closePopup(popupElement);
+  })
+});
+
+////закрытие popup при нажатии на escape
+const closePopupByEscape = function (event) {
+  if (event.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
+};
+
+//закрытие popup при нажатии на overlay
+const PopupClosedByClickOnOverlay = function (event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  }
+  closePopup(event.currentTarget);
+};
+popupElements.forEach(element => element.addEventListener('click', PopupClosedByClickOnOverlay));
 
 //создание карточки
 function createCard(card) {
@@ -105,9 +126,6 @@ initialCards.forEach((card) => {
 });
 
 profileEditButtonElement.addEventListener('click', openEditProfilePopup);
-popupCloseButtonElement.addEventListener('click', function () {
-  closePopup(popupEditProfile);
-});
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -119,11 +137,4 @@ cardAddButtonElement.addEventListener('click', function () {
   formAddCard.reset();
 });
 
-popupCardsCloseButtonElement.addEventListener('click', closeCardsForm);
-
 formAddCard.addEventListener('submit', handleFormCards);
-
-//закрытие зума
-zoomCloseButtonElement.addEventListener('click', function () {
-  closePopup(zoomCards);
-})
