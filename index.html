@@ -49,12 +49,12 @@
             <button class="popup__close-btn" type="button" title="Закрыть"></button>
             <form class="popup__form popup__form-profile" name="edit-profile" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__input popup__input_user_name" id="name" type="text" name="title" placeholder="Имя" minlength="2" maxlength="40"
-                    required>
-                    <span class="popup__form-error popup__form-error_type_name" id="name-error"></span>
-                <input class="popup__input popup__input_user_description"  id="description" type="text" name="subtitle"
-                    placeholder="О себе" minlength="2" maxlength="200" required>
-                    <span class="popup__form-error popup__form-error_type_job" id="job-error"></span>
+                <input class="popup__input popup__input_user_name" id="username" type="text" name="title"
+                    placeholder="Имя" minlength="2" maxlength="40" required>
+                <span class="popup__input-error popup__input-name-error" id="username-error"></span>
+                <input class="popup__input popup__input_user_description" id="description" type="text"
+                    name="subtitle" placeholder="О себе" minlength="2" maxlength="200" required>
+                <span class="popup__input-error popup__input-description-error" id="description-error"></span>
                 <button class="popup__submit-btn" type="submit" title="Сохранить">Сохранить</button>
             </form>
         </div>
@@ -64,13 +64,13 @@
             <button class="popup__close-btn popup__close-cards-btn" type="button" title="Закрыть"></button>
             <form action="#" class="popup__form popup__form-cards" name="add-card" novalidate>
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" class="popup__input popup__input_image_name" placeholder="Название" name="imagename"
-                    value="" minlength="2" maxlength="30" required>
-                    <span class="popup__form-error popup__form-error_type_title" id="title-error"></span>
-                <input type="url" id="link" name="link" class="popup__input popup__input_image_link" placeholder="Ссылка на картинку"
-                    value="" name="linkimage" required>
-                    <span class="popup__form-error popup__form-error_type_link" id="link-error"></span>
-                <button class="popup__create-btn">Создать</button>
+                <input type="text" class="popup__input popup__input_image_name" id="title" placeholder="Название"
+                    name="imagename" value="" minlength="2" maxlength="30" required>
+                <span class="popup__input-error popup__input-title-error" id="title-error"></span>
+                <input type="url" id="link" name="link" class="popup__input popup__input_image_link"
+                    placeholder="Ссылка на картинку" value="" name="linkimage" required>
+                <span class="popup__input-error popup__input-link-error" id="link-error"></span>
+                <button class="popup__submit-btn popup__create-btn" type="submit">Создать</button>
             </form>
         </div>
     </section>
@@ -81,9 +81,10 @@
             <button type="button" class="popup__close-btn popup__close-zoom-btn"></button>
         </div>
     </section>
-    <script src="./scripts/constants.js"></script>
-    <script src="./scripts/index.js"></script>
-    
+    <script src="./scripts/constants.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+
 </body>
 
 </html>

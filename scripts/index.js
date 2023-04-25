@@ -23,6 +23,7 @@ const popupCardsCloseButtonElement = document.querySelector('.popup__close-cards
 const cardCreateButton = document.querySelector('.popup__create-btn'); //кнопка создать
 const zoomCloseButtonElement = document.querySelector('.popup__close-zoom-btn'); //кнопка закрыть зум
 
+
 //Открываем Поп-ап
 const openPopup = function (popupElement) {
   popupElement.classList.add('popup_opened');
@@ -50,6 +51,11 @@ function submitEditProfileForm(evt) {
   aboutUser.textContent = descriptionInput.value;
   //После отправки формы автоматически закрываем поп-ап
   closePopup(popupEditProfile);
+}
+
+//Закрытие формы при нажатии на крестик без сохранения
+const closeCardsForm = function () {
+  closePopup(popupCards);
 }
 
 //закрытие popup при нажатии на х
@@ -125,6 +131,22 @@ initialCards.forEach((card) => {
   cardElements.appendChild(cardElement);
 });
 
+//Функция удаления сообщений об ошибке с попапов, содержащих формы
+const test = function () {
+  const allPopups = Array.from(document.querySelectorAll('.popup'));
+  allPopups.forEach((currentPopup) => {
+    if(!currentPopup.classList.contains('popup_opened')) {
+      if(currentPopup.querySelector(validationConfig.formSelector) !== null) {
+        const currentForm = currentPopup.querySelector(validationConfig.formSelector);
+        const currentInputs = Array.from(currentForm.querySelectorAll(validationConfig.inputSelector));
+        currentInputs.forEach((currentInput) => {
+          hideInputError(currentForm, currentInput);
+        });
+      }
+    }
+  });
+};
+
 profileEditButtonElement.addEventListener('click', openEditProfilePopup);
 
 // Прикрепляем обработчик к форме:
@@ -134,6 +156,7 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 //Добавление карточки
 cardAddButtonElement.addEventListener('click', function () {
   openPopup(popupCards);
+  resetCardForm(formAddCard);
   formAddCard.reset();
 });
 
