@@ -1,10 +1,19 @@
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-btn',
+  inactiveButtonClass: 'popup__submit-btn_disable',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}
+
 function setInputValidState(input, errorElement) {
-  input.classList.remove(validationConfig.inputErrorClass);
+  input.classList.remove(config.inputErrorClass);
   errorElement.textContent = '';
 }
 
 function setInputInvalideState(input, errorElement) {
-  input.classList.add(validationConfig.inputErrorClass);
+  input.classList.add(config.inputErrorClass);
   errorElement.textContent = input.validationMessage;
 }
 
@@ -36,24 +45,11 @@ function toggleButtonValidity({ submitButtonSelector, ...rest }, form) {
   }
 }
 
-function setSubmitListener(validationConfig, form) {
+function setSubmitListener(config, form) {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
-    toggleButtonValidity(validationConfig, form);
+    toggleButtonValidity(config, form);
   });
-}
-
-function resetProfileForm(form) {
-  toggleButtonValidity(validationConfig, form);
-  const inputs = form.querySelectorAll(validationConfig.inputSelector);
-  const inputsArray = Array.from(inputs);
-  inputsArray.forEach(function (input) {
-    checkInputValidity(input, form);
-  });
-}
-
-function resetCardForm(form) {
-  toggleButtonValidity(validationConfig, form);
 }
 
 function enableValidation({ formSelector, inputSelector, ...rest }) {
@@ -72,13 +68,4 @@ function enableValidation({ formSelector, inputSelector, ...rest }) {
   });
 }
 
-validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__submit-btn_disable',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-};
-
-enableValidation(validationConfig);
+enableValidation(config);
