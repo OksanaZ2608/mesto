@@ -75,13 +75,13 @@ const closePopupByEscape = function (event) {
 };
 
 //закрытие popup при нажатии на overlay
-const PopupClosedByClickOnOverlay = function (event) {
+const popupClosedByClickOnOverlay = function (event) {
   if (event.target !== event.currentTarget) {
     return;
   }
   closePopup(event.currentTarget);
 };
-popupElements.forEach(element => element.addEventListener('click', PopupClosedByClickOnOverlay));
+popupElements.forEach(element => element.addEventListener('mousedown', popupClosedByClickOnOverlay));
 
 //создание карточки
 function createCard(card) {
@@ -89,9 +89,9 @@ function createCard(card) {
   const cardTitle = cardTemplate.querySelector('.element__title');//название карточки
   const cardImage = cardTemplate.querySelector('.element__image');//изображение карточки
   const deleteCardButton = cardTemplate.querySelector('.element__delete-btn');//удалить карточку
-  cardTitle.textContent = card.title;
+  cardTitle.textContent = card.name;
   cardImage.setAttribute('src', card.link);
-  cardImage.setAttribute('alt', card.title);
+  cardImage.setAttribute('alt', card.name);
   deleteCardButton.addEventListener('click', function (evt) {
     evt.target.closest('.element').remove();
   });//удаление карточки
@@ -119,7 +119,7 @@ function handleFormCards(evt) {
   const title = imageName.value;
   const link = imageLink.value;
   const newCard = {
-    title: title,
+    name: title,
     link: link
   }
   renderCard(newCard, cardElements);
@@ -128,24 +128,24 @@ function handleFormCards(evt) {
 
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
-  cardElements.appendChild(cardElement);
+  cardElements.prepend(cardElement);
 });
 
-//Функция удаления сообщений об ошибке с попапов, содержащих формы
-const test = function () {
-  const allPopups = Array.from(document.querySelectorAll('.popup'));
-  allPopups.forEach((currentPopup) => {
-    if(!currentPopup.classList.contains('popup_opened')) {
-      if(currentPopup.querySelector(validationConfig.formSelector) !== null) {
-        const currentForm = currentPopup.querySelector(validationConfig.formSelector);
-        const currentInputs = Array.from(currentForm.querySelectorAll(validationConfig.inputSelector));
-        currentInputs.forEach((currentInput) => {
-          hideInputError(currentForm, currentInput);
-        });
-      }
-    }
-  });
-};
+// //Функция удаления сообщений об ошибке с попапов, содержащих формы
+// const test = function () {
+//   const allPopups = Array.from(document.querySelectorAll('.popup'));
+//   allPopups.forEach((currentPopup) => {
+//     if(!currentPopup.classList.contains('popup_opened')) {
+//       if(currentPopup.querySelector(config.formSelector) !== null) {
+//         const currentForm = currentPopup.querySelector(config.formSelector);
+//         const currentInputs = Array.from(currentForm.querySelectorAll(config.inputSelector));
+//         currentInputs.forEach((currentInput) => {
+//           hideInputError(currentForm, currentInput);
+//         });
+//       }
+//     }
+//   });
+// };
 
 profileEditButtonElement.addEventListener('click', openEditProfilePopup);
 
