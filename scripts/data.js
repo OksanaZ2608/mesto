@@ -1,4 +1,4 @@
-const initialCards = [
+ const initialCards = [
     {
         name: 'Куба',
         link: 'https://images.unsplash.com/photo-1589786410666-696402c6f665?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8JUQwJUJBJUQxJTgzJUQwJUIxJUQwJUIwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
@@ -24,3 +24,5 @@ const initialCards = [
         link: 'https://images.unsplash.com/photo-1666088605090-0e2641477439?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fCVEMSU4MSVEMCVCRSVEMSU4NyVEMCVCOHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'
     }
 ];
+
+export default initialCards;
