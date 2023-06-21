@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/icon.png">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Проект Mesto</title>
 </head>
@@ -27,7 +28,7 @@
         </section>
         <section class="cards">
             <ul class="elements">
-                <template id="template">
+                <template id="template" class="card-template">
                     <li class="element">
                         <img class="element__image" src="#" alt="фото места">
                         <div class="element__block">
@@ -52,8 +53,8 @@
                 <input class="popup__input popup__input_user_name" id="username" type="text" name="username"
                     placeholder="Имя" minlength="2" maxlength="40" required>
                 <span class="popup__input-error popup__input-username" id="username-error"></span>
-                <input class="popup__input popup__input_user_description" id="description" type="text" name="description"
-                    placeholder="О себе" minlength="2" maxlength="200" required>
+                <input class="popup__input popup__input_user_description" id="description" type="text"
+                    name="description" placeholder="О себе" minlength="2" maxlength="200" required>
                 <span class="popup__input-error popup__input-description" id="description-error"></span>
                 <button class="popup__submit-btn" type="submit" title="Сохранить">Сохранить</button>
             </form>
