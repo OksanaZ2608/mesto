@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/iconka.png">
-    <link rel="stylesheet" href="./pages/index.css">
+    <link href="<%=require('./images/iconka.png')%>" rel="icon">
     <title>Проект Mesto</title>
 </head>
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="логотип Место">
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип Место">
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" alt="'аватар пользователя" src="./images/avatar.jpeg">
+            <img class="profile__avatar" alt="аватар пользователя" src="<%=require('./images/avatar.jpeg')%>">
             <div class="profile__info">
                 <div class="profile__edit-user">
                     <h1 class="profile__user">Жак-Ив Кусто</h1>
@@ -82,8 +81,6 @@
             <button type="button" class="popup__close-btn popup__close-zoom-btn"></button>
         </div>
     </section>
-
-    <script defer type="module" src="./pages/index.js"></script>
 
 </body>
 

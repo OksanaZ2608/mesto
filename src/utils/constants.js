@@ -13,12 +13,12 @@ export const zoomCards = document.querySelector('.popup-zoom-cards');
 export const elementsCardSelector = ".elements"; //разметка ul
 //валидация
 export const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__submit-btn_disable',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit-btn',
+    inactiveButtonClass: 'popup__submit-btn_disable',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
 };
 
 const kuba = new URL('https://images.unsplash.com/photo-1589786410666-696402c6f665?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8JUQwJUJBJUQxJTgzJUQwJUIxJUQwJUIwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60', import.meta.url);
@@ -29,28 +29,28 @@ const abhazya = new URL('https://images.unsplash.com/photo-1601035595862-379449b
 const sochi = new URL('https://images.unsplash.com/photo-1666088605090-0e2641477439?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fCVEMSU4MSVEMCVCRSVEMSU4NyVEMCVCOHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60', import.meta.url);
 
 export const initialCards = [
-  {
-      name: 'Куба',
-      link: kuba
-  },
-  {
-      name: 'Португалия',
-      link: portugal
-  },
-  {
-      name: 'Буэнависта',
-      link: buenavista
-  },
-  {
-      name: 'Рим',
-      link: rum
-  },
-  {
-      name: 'Абхазия',
-      link: abhazya
-  },
-  {
-      name: 'Сочи',
-      link: sochi
-  }
+    {
+        name: 'Куба',
+        link: kuba
+    },
+    {
+        name: 'Португалия',
+        link: portugal
+    },
+    {
+        name: 'Буэнависта',
+        link: buenavista
+    },
+    {
+        name: 'Рим',
+        link: rum
+    },
+    {
+        name: 'Абхазия',
+        link: abhazya
+    },
+    {
+        name: 'Сочи',
+        link: sochi
+    }
 ];
