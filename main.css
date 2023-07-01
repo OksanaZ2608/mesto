@@ -21,6 +21,7 @@
 .element__like{align-self:center;background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);border:none;cursor:pointer;height:19px;width:22px}.element__like:hover{opacity:.5}
 .element__like-count{color:#000;font-size:13px;font-weight:400;line-height:15.73px;text-align:center}
 .element__like-active{align-self:center;background-color:transparent;background-image:url(fe17a515669479b1e649.svg);border:none;cursor:pointer;height:19px;width:22px}.element__like-active:hover{opacity:1}
+.element__like-place{display:flex;flex-direction:column;height:35px;margin-left:auto;width:22px}
 .element__delete-btn{align-self:center;background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);border:none;cursor:pointer;height:19px;position:absolute;right:20px;top:20px;width:18px}.element__delete-btn:hover{opacity:.6}
 .element__delete-btn_active{display:block}
 .footer{margin:auto}@media screen and (max-width:950px){.footer{margin-left:16px}}
